@@ -6,12 +6,10 @@ int main()
    cin >> t;
    while (t--)
    {
-      int a, b;
+      long long a, b;
       cin >> a >> b;
-      int k = a / b;
-      int r = k * b;
-      int rem = a - r;
-      if (rem % 2 == 0)
+
+      if ((a % 2 == 0) || ((b % 2 == 1) && (b <= a)))
       {
          cout << "YES" << endl;
       }
