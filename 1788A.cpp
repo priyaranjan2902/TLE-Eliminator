@@ -9,24 +9,35 @@ int main()
       int n;
       cin >> n;
       vector<int> arr(n);
-      int prod = 1;
+      int two = 0;
       for (int i = 0; i < n; i++)
       {
          cin >> arr[i];
-         prod *= arr[i];
+         if (arr[i] == 2)
+            two++;
       }
-      int temp = 1;
-      int r = -1;
-      for (int i = 0; i < n; i++)
+      int result = -1;
+      if (two == 0)
       {
-         temp *= arr[i];
-         int k = prod / temp;
-         if (temp == k)
+         result = 1;
+      }
+      else if (two % 2 == 0)
+      {
+         int k = two / 2;
+         int count = 0;
+         for (int i = 0; i < n; i++)
          {
-            r = i + 1;
-            break;
+            if (arr[i] == 2)
+            {
+               count++;
+               if (count == k)
+               {
+                  result = i + 1;
+                  break;
+               }
+            }
          }
       }
-      cout << r << "\n";
+      cout << result << "\n";
    }
 }
